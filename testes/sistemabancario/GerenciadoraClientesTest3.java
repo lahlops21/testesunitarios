@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
@@ -234,12 +235,39 @@ public class GerenciadoraClientesTest3 {
 				Cliente cliente = new Cliente(6, "Ícaro", 17, "icaro@email", 6, true);
 				
 				// Execução
-				
+				try {
+					gerClientes.validaIdade(cliente.getId());
+					fail();
+					System.out.println("t1");
+					
+				} catch (Exception e) {
+					System.out.println("t2");
+					assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
+				}
 				boolean idadeValida = gerClientes.validaIdade(cliente.getIdade());
 				
-				// Verificação 
 				
-				assertTrue(idadeValida);
+			}
+			
+			// Validação quando o cliente está no intervalo de idade NÃO permitida na borda superior
+			
+			@Test
+				public void testClienteIdadePermitida5() throws IdadeNaoPermitidaException {
+				
+				// Cenário Customizado para teste
+				Cliente cliente = new Cliente(7, "Ralph", 66, "ralph@email", 7, true);
+				
+				// Execução
+				try {
+					gerClientes.validaIdade(cliente.getId());
+					fail();
+					System.out.println("t1");
+					
+				} catch (Exception e) {
+					System.out.println("t2");
+					assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
+				}
+				boolean idadeValida = gerClientes.validaIdade(cliente.getIdade());	
 				
 			}
 
