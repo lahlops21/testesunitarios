@@ -228,7 +228,7 @@ public class GerenciadoraClientesTest3 {
 		
 		// Validação quando o cliente está no intervalo de idade NÃO permitida na borda inferior
 		
-			@Test
+			    @Test
 				public void testClienteIdadePermitida4() throws IdadeNaoPermitidaException {
 				
 				// Cenário Customizado para teste
@@ -251,7 +251,7 @@ public class GerenciadoraClientesTest3 {
 			
 			// Validação quando o cliente está no intervalo de idade NÃO permitida na borda superior
 			
-			@Test
+			    @Test
 				public void testClienteIdadePermitida5() throws IdadeNaoPermitidaException {
 				
 				// Cenário Customizado para teste
@@ -271,10 +271,7 @@ public class GerenciadoraClientesTest3 {
 				
 			}
 
-
-
-	
-	
+			
 }
 
 
